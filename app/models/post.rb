@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
+  has_one_attached :post 
   belongs_to :story
-  has_one_attached :postImg 
 end
