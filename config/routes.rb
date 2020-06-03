@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :plants
   resources :collections
   resources :users
 
