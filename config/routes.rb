@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :likes
   resources :posts
   resources :stories
   resources :plants
