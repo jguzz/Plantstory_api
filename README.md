@@ -1,5 +1,8 @@
-# README
+# Plantstory API
 
+A Ruby on Rails API used as the backend for Plantsory_client.
+Uses active storage for photo storage.
+____________________________________________________________________________
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
