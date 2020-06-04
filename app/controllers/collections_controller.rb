@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-	before_action :find_collection,only: [:show, :edit, :update]
+	before_action :find_collection,only: [:edit, :update]
 	
 	def index
 		@collections=Collection.all
