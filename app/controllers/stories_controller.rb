@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-	before_action :find_story,only: [ :edit, :update]
+	before_action :find_story,only: [  :update]
 	
 	def index
 		@stories=Story.all
