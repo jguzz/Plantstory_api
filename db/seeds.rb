@@ -1,3 +1,4 @@
+require 'rest-client'
 #Destroying every table
 Like.destroy_all 
 Post.destroy_all 
@@ -18,6 +19,9 @@ Joey.avatar.attach(
 Indoor = Collection.create(user_id: Joey.id, name: 'Indoor Plants', description: 'These are all of my indoor plants! I hope you like them :3')
 
 #Seed for Plant
+#Scraping data from Trefle API 
+KEY = ENV['TREFLE_KEY']
+# res = RestClient.get()
 Pothos = Plant.create(common_name:"Pothos", latin_name:"epiprenum")
 
 #Seed for Story 
