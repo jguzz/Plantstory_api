@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_203932) do
+ActiveRecord::Schema.define(version: 2020_06_03_212638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,51 @@ ActiveRecord::Schema.define(version: 2020_06_03_203932) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_collections_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string "common_name"
+    t.string "latin_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "story_id", null: false
+    t.string "caption"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["story_id"], name: "index_posts_on_story_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.bigint "collection_id", null: false
+    t.bigint "plant_id", null: false
+    t.string "nickname"
+    t.date "acquiredOn"
+    t.boolean "owned"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_stories_on_collection_id"
+    t.index ["plant_id"], name: "index_stories_on_plant_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -46,4 +91,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_203932) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "collections", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "posts", "stories"
+  add_foreign_key "stories", "collections"
+  add_foreign_key "stories", "plants"
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  collection: one
+  plant: one
+  nickname: MyString
+  acquiredOn: 2020-06-03
+  owned: false
+
+two:
+  collection: two
+  plant: two
+  nickname: MyString
+  acquiredOn: 2020-06-03
+  owned: false
