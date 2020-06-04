@@ -6,12 +6,6 @@ class CollectionsController < ApplicationController
 		render json:@collections
 	end
 
-	def show
-		render json:@collection
-	end
-	
-
-
 	def create
 		@collection= Collection.new(collection_params)
 		@collection.save
