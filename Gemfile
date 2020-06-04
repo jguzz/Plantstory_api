@@ -42,4 +42,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 #env to hide key
-gem 'dotenv', '~> 2.7.5'
+gem 'dotenv-rails', groups: [:development, :test]
+
+#Rest client for restful requests
+gem 'rest-client'

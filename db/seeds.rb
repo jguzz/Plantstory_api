@@ -20,9 +20,12 @@ Indoor = Collection.create(user_id: Joey.id, name: 'Indoor Plants', description:
 
 #Seed for Plant
 #Scraping data from Trefle API 
-KEY = ENV['TREFLE_KEY']
-# res = RestClient.get()
-Pothos = Plant.create(common_name:"Pothos", latin_name:"epiprenum")
+key = ENV["TREFLE_KEY"]
+res = RestClient.get("https://trefle.io/api/plants?token=#{key}")
+data = JSON.parse(res)
+data.each do |plant|
+	Plant.create(common_name: plant["common_name"], latin_name: plant["scientific_name"])
+end
 
 #Seed for Story 
 MyPothos = Story.create(nickname: 'devil', acquiredOn: DateTime.strptime("07/15/2019", "%m/%d/%Y"),owned: true, plant_id:Pothos.id, collection_id:Indoor.id )
