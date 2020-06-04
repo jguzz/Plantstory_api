@@ -5,7 +5,7 @@ class LikesController < ApplicationController
         render json:@like
 	end
 	def index
-        @likes = Likes.all
+        @likes = Like.all
         render json:@likes
 	end
 	
