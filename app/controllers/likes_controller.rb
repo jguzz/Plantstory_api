@@ -8,6 +8,9 @@ class LikesController < ApplicationController
         @likes = Like.all
         render json:@likes
 	end
+	def delete 
+		Like.find(params[:id]).delete
+	end
 	
 	private
     def like_params
