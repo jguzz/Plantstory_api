@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
-	before_action :find_user,only: [ :update]
-	
+	# before_action :find_user,only: [ :update]
+
+
 	def index
 		@users=User.all
 		render json:@users
+	end
+
+	def show 
+		@user = User.find_by(username: params[:username])
+		if @user && @user.password == params[:password] 
+		avatar = rails_blob_path(@user.avatar)
+		render json: { user: @user, avatar: avatar}
+		else
+			render json: {message: 'This user is not authenticated!'}
+		end
 	end
 
 	def create
@@ -14,6 +25,7 @@ class UsersController < ApplicationController
 	end
 	
 	def update
+		@user = User.find(params[:id])
 		@user.update(params.require(:user).permit!)
 		if @user.valid?
 			render json:@user
@@ -28,10 +40,8 @@ class UsersController < ApplicationController
 		params.require(:user).permit!
 	end
 
-	def find_user
-		@user = User.find(params[:id])
-	end
-
-
+	# def find_user
+	# 	@user = User.find(params[:id])
+	# end
 
 end
