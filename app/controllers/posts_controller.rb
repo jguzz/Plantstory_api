@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 	
 	def index
 		@posts=Post.all
-		render json:@posts
+		@posts_w_imgs = @posts.map { |post| {img: rails_blob_path(post.post_img),post: post }} 
+		render json:@posts_w_imgs
 	end
 
 	def create
