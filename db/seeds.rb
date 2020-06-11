@@ -39,8 +39,8 @@ Story.create(nickname: 'Pinnochio', acquiredOn: DateTime.strptime("07/15/2019", 
 
 #Seed for Post 
 firstPost = Post.create(caption: "This is my pothos, I can't stop propegating him so his vines are small :(", story_id: MyPothos.id)
-firstPost.post.attach(
-	io: File.open('./public/post/pothos.jpg'),
+firstPost.post_img.attach(
+	io: File.open('./public/post_img/pothos.jpg'),
 	filename: 'pothos.jpg',
 	content_type: 'application/jpg'
 )
