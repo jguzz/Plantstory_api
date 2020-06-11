@@ -1,21 +1,30 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: :update
+
 	
 	def index
 		@posts=Post.all
-		@posts_w_imgs = @posts.map { |post| {img: rails_blob_path(post.post_img),post: post }} 
+		@posts_w_imgs = @posts.map { |post| {post_img: rails_blob_path(post.post_img),post: post }} 
 		render json:@posts_w_imgs
 	end
 
-	def create
+	def show 
+		@post = Post.find_by(id: params[:id])
+		@post_img = rails_blob_path(@post.post_img)
+		render json: {post: @post, post_img: @post_img}
+	end
 
+	def create
 		@post= Post.create(caption: params[:caption], story_id: params[:story_id] )
 
 		render json:@post
 	end
 	
 	def update
-		@post.update(params.require(:post).permit!)
+
+		@post = Post.find(params[:id])
+		@post.update(post_img: params[:post_img])
+		# byebug
+		post_img_url = rails_blob_path(@post.post_img)
 		if @post.valid?
 			render json:@post
 		else
