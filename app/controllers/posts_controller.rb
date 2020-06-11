@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [ :update]
+	before_action :find_post, only: :update
 	
 	def index
 		@posts=Post.all
@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post= Post.new(post_params)
-		@post.save
+
+		@post= Post.create(caption: params[:caption], story_id: params[:story_id] )
 
 		render json:@post
 	end
