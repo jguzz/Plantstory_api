@@ -16,6 +16,7 @@ Joey.avatar.attach(
 
 #Seed for Collection
 Indoor = Collection.create(user_id: Joey.id, name: 'Indoor Plants', description: 'These are all of my indoor plants! I hope you like them :3')
+Outdoor = Collection.create(user_id: Joey.id, name: 'Outdoor Plants', description: 'These are all of my outdoor plants! I you dont notice the burns :3')
 
 #Seed for Plant
 #Scraping data from Trefle API 
@@ -42,6 +43,13 @@ firstPost = Post.create(caption: "This is my pothos, I can't stop propegating hi
 firstPost.post_img.attach(
 	io: File.open('./public/post_img/pothos.jpg'),
 	filename: 'pothos.jpg',
+	content_type: 'application/jpg'
+)
+
+secondPost = Post.create(caption: "This is my pothos now, look at it grow!", story_id: MyPothos.id)
+secondPost.post_img.attach(
+	io: File.open('./public/post_img/big_pothos.jpg'),
+	filename: 'big_pothos.jpg',
 	content_type: 'application/jpg'
 )
 
