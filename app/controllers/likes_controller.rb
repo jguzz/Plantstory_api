@@ -8,13 +8,15 @@ class LikesController < ApplicationController
         @likes = Like.all
         render json:@likes
 	end
-	def delete 
+	def destroy 
 		Like.find(params[:id]).delete
+		@likes = Like.all
+		render json:@likes
 	end
 	
 	private
     def like_params
-        params.require(:like).permit(:user_id, :post_id)
+        params.require(:like).permit(:user_id, :post_id, :id)
     end
 
 end
