@@ -1,10 +1,10 @@
 # require 'rest-client'
 #Destroying every table
 # Like.destroy_all 
-# Post.destroy_all 
-# Story.destroy_all 
-# Collection.destroy_all
-# User.destroy_all
+Post.destroy_all 
+Story.destroy_all 
+Collection.destroy_all
+User.destroy_all
 
 #Seed for User
 # Joey = User.create(name: "Joseph", username: "luxor", password: "123", email:"Joseph.a.guzzardo@gmail.com")
@@ -63,8 +63,14 @@
 )
 
 	# Seed for Collection
-	Bedroom = Collection.create(user_id: Joey.id, name: 'Bedroom Plants', description: 'These are most of my plants! I started collecting plants a year ago... And now I have a big collection, I hope you enjoy!')
+	Bedroom = Collection.create(user_id: joey.id, name: 'Bedroom Plants', description: 'These are most of my plants! I started collecting plants a year ago... And now I have a big collection, I hope you enjoy!')
 
 	triostar = Story.create(acquiredOn: DateTime.strptime("05/15/2020", "%m/%d/%Y"),owned: true, common_name: 'Stromanthe Triostar', latin_name: 'Stromanthe sanguinea', collection_id:Bedroom.id)
 
+	post = Post.create(caption: "My brother bought me this triostar for my 23rd birthday", story_id: triostar.id)
+	post.post_img.attach(
+			io: File.open('./public/post_img/IMG_9355.jpg'),
+			filename: 'IMG_9355.jpg',
+			content_type: 'application/jpg'
+		)
 
