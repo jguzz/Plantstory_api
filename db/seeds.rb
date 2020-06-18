@@ -14,9 +14,6 @@
 # 	content_type: 'application/png'
 # )
 
-#Seed for Collection
-# Indoor = Collection.create(user_id: Joey.id, name: 'Indoor Plants', description: 'These are all of my indoor plants! I hope you like them :3')
-# Outdoor = Collection.create(user_id: Joey.id, name: 'Outdoor Plants', description: 'These are all of my outdoor plants! I you dont notice the burns :3')
 
 #Seed for Plant
 #Scraping data from Trefle API 
@@ -41,17 +38,33 @@
 #Seed for Post 
 # firstPost = Post.create(caption: "This is my pothos, I can't stop propegating him so his vines are small :(", story_id: MyPothos.id)
 # firstPost.post_img.attach(
-# 	io: File.open('./public/post_img/pothos.jpg'),
-# 	filename: 'pothos.jpg',
-# 	content_type: 'application/jpg'
-# )
+	# 	io: File.open('./public/post_img/pothos.jpg'),
+	# 	filename: 'pothos.jpg',
+	# 	content_type: 'application/jpg'
+	# )
+	
+	# secondPost = Post.create(caption: "This is my pothos now, look at it grow!", story_id: MyPothos.id)
+	# secondPost.post_img.attach(
+		# 	io: File.open('./public/post_img/big_pothos.jpg'),
+		# 	filename: 'big_pothos.jpg',
+		# 	content_type: 'application/jpg'
+		# )
+		
+		#Seed for Like
+		# like = Like.create(user_id: Joey.id, post_id: firstPost.id)
+		
+		
+	joey = User.create(username: 'luxor', password: '123', email: 'joey@gmail.com', name: 'Joey Guzzardo')
 
-# secondPost = Post.create(caption: "This is my pothos now, look at it grow!", story_id: MyPothos.id)
-# secondPost.post_img.attach(
-# 	io: File.open('./public/post_img/big_pothos.jpg'),
-# 	filename: 'big_pothos.jpg',
-# 	content_type: 'application/jpg'
-# )
+	joey.avatar.attach(
+	io: File.open('./public/avatars/monstera.png'),
+	filename: 'monstera.png',
+	content_type: 'application/png'
+)
 
-#Seed for Like
-# like = Like.create(user_id: Joey.id, post_id: firstPost.id)
+	# Seed for Collection
+	Bedroom = Collection.create(user_id: Joey.id, name: 'Bedroom Plants', description: 'These are most of my plants! I started collecting plants a year ago... And now I have a big collection, I hope you enjoy!')
+
+	triostar = Story.create(acquiredOn: DateTime.strptime("05/15/2020", "%m/%d/%Y"),owned: true, common_name: 'Stromanthe Triostar', latin_name: 'Stromanthe sanguinea', collection_id:Bedroom.id)
+
+
