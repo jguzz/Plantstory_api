@@ -1,7 +1,7 @@
 ![Plantstory Main Feed](./public/readme/Main.png)
 # Plantstory API
 
-A __Ruby on Rails__ API used as the backend for [Plantsory_client](https://github.com/jguzz/plantstory-client).
+A __Ruby on Rails__ API following MVC patterns using __Postgress__. Used as the backend for [Plantsory_client](https://github.com/jguzz/plantstory-client).
 Uses __active storage__ for photo storage.
 
 ## Installation 
