@@ -46,3 +46,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 #Rest client for restful requests
 gem 'rest-client'
+
+# For deployment
+gem 'cowsay'
