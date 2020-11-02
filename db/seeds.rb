@@ -171,5 +171,5 @@ post4=	 Post.create(caption: "My propagated basil is flowering!", story_id: Red.
 				io: File.open('./public/post_img/IMG_3424.jpg'),
 				filename: 'IMG_3424.jpg',
 				content_type: 'application/jpg'
-		).save!
+		)
 
