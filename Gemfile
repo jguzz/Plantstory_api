@@ -49,3 +49,6 @@ gem 'rest-client'
 
 # For deployment
 gem 'cowsay'
+
+#aws s3
+gem "aws-sdk-s3", require: false
