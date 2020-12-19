@@ -8,6 +8,7 @@ Uses __active storage__ for photo storage.
 * Clone down the repo using `git clone https://github.com/jguzz/Plantstory_api.git`
 Run... 
 * `bundle install`
+* `rails db:create`
 * `rails db:migrate`
 * `rails db:seed`
 * `rails s`

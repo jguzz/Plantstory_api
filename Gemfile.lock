@@ -194,6 +194,7 @@ DEPENDENCIES
   cowsay
   dotenv-rails
   listen (~> 3.2)
+  nokogiri (= 1.10.9)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rack-cors
@@ -204,7 +205,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.6.1p33
+   ruby 2.6.3p62
 
 BUNDLED WITH
    2.1.4
